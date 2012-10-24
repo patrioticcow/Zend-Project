@@ -1,0 +1,56 @@
+<?php
+/**
+ * Zend Framework (http://framework.zend.com/)
+ *
+ * @link      http://github.com/zendframework/zf2 for the canonical source repository
+ * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @package   Zend_Console
+ */
+
+namespace Zend\Console\Charset;
+
+/**
+ * UTF-8 box drawing
+ *
+ * @link http://en.wikipedia.org/wiki/Box-drawing_characters
+ * @category   Zend
+ * @package    Zend_Console
+ * @subpackage Charset
+ */
+class Utf8 implements CharsetInterface
+{
+
+    const ACTIVATE          = "";
+    const DEACTIVATE        = "";
+
+    const BLOCK = "âÆ";
+    const SHADE_LIGHT = "â";
+    const SHADE_MEDIUM = "â";
+    const SHADE_DARK = "â";
+
+    const LINE_SINGLE_EW = "â¬";
+    const LINE_SINGLE_NS = "â";
+    const LINE_SINGLE_NW = "âR";
+    const LINE_SINGLE_NE = "âý";
+    const LINE_SINGLE_SE = "âÜ";
+    const LINE_SINGLE_SW = "â";
+    const LINE_SINGLE_CROSS = "â¼";
+
+    const LINE_DOUBLE_EW = "â"ý";
+    const LINE_DOUBLE_NS = "â"";
+    const LINE_DOUBLE_NW = "â"";
+    const LINE_DOUBLE_NE = "â"";
+    const LINE_DOUBLE_SE = "â"ý";
+    const LINE_DOUBLE_SW = "â"a";
+    const LINE_DOUBLE_CROSS = "â"¬";
+
+    const LINE_BLOCK_EW = "âÆ";
+    const LINE_BLOCK_NS = "âÆ";
+    const LINE_BLOCK_NW = "âÆ";
+    const LINE_BLOCK_NE = "âÆ";
+    const LINE_BLOCK_SE = "âÆ";
+    const LINE_BLOCK_SW = "âÆ";
+    const LINE_BLOCK_CROSS = "âÆ";
+
+}
