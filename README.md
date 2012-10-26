@@ -20,8 +20,8 @@ Modules
 * [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (latest master)
 * [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (latest master)
 * [BjyAuthorize](https://github.com/Darkmatus/BjyAuthorize) (latest master)
-* [RoleUserBridge](https://github.com/zendframework/ZendDeveloperTools) (latest master)
-* [ZendDeveloperTools](https://github.com/Darkmatus/ZfcUser-BjyAuthorize-Bridge) (latest master)
+* [RoleUserBridge](https://github.com/Darkmatus/ZfcUser-BjyAuthorize-Bridge) (latest master)
+* [ZendDeveloperTools](https://github.com/zendframework/ZendDeveloperTools) (latest master)
 * [BjyProfiler](https://github.com/bjyoungblood/BjyProfiler) (latest master)
 * [ZFTool](https://github.com/zendframework/ZFTool) (latest master)
 
