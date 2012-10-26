@@ -7,6 +7,10 @@ This is a simple, skeleton application using the ZF2 MVC layer and module
 systems. This application is meant to be used as a starting place for those
 looking to get their feet wet with ZF2.
 
+Disclaimer
+----------
+This code is used for testing purposses only, primarily for my playground.
+
 
 Modules
 -------
@@ -16,7 +20,10 @@ Modules
 * [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (latest master)
 * [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (latest master)
 * [BjyAuthorize](https://github.com/Darkmatus/BjyAuthorize) (latest master)
-* [RoleUserBridge](https://github.com/Darkmatus/ZfcUser-BjyAuthorize-Bridge) (latest master)
+* [RoleUserBridge](https://github.com/zendframework/ZendDeveloperTools) (latest master)
+* [ZendDeveloperTools](https://github.com/Darkmatus/ZfcUser-BjyAuthorize-Bridge) (latest master)
+* [BjyProfiler](https://github.com/bjyoungblood/BjyProfiler) (latest master)
+* [ZFTool](https://github.com/zendframework/ZFTool) (latest master)
 
 
 What is inside / working
