@@ -24,33 +24,33 @@ class Utf8 implements CharsetInterface
     const ACTIVATE          = "";
     const DEACTIVATE        = "";
 
-    const BLOCK = "‚∆";
-    const SHADE_LIGHT = "‚";
-    const SHADE_MEDIUM = "‚";
-    const SHADE_DARK = "‚";
+    const BLOCK = "‚ñà";
+    const SHADE_LIGHT = "‚ñë";
+    const SHADE_MEDIUM = "‚ñí";
+    const SHADE_DARK = "‚ñì";
 
-    const LINE_SINGLE_EW = "‚¨";
-    const LINE_SINGLE_NS = "‚";
-    const LINE_SINGLE_NW = "‚R";
-    const LINE_SINGLE_NE = "‚˝";
-    const LINE_SINGLE_SE = "‚‹";
-    const LINE_SINGLE_SW = "‚";
-    const LINE_SINGLE_CROSS = "‚º";
+    const LINE_SINGLE_EW = "‚îÄ";
+    const LINE_SINGLE_NS = "‚îÇ";
+    const LINE_SINGLE_NW = "‚îå";
+    const LINE_SINGLE_NE = "‚îê";
+    const LINE_SINGLE_SE = "‚îò";
+    const LINE_SINGLE_SW = "‚îî";
+    const LINE_SINGLE_CROSS = "‚îº";
 
-    const LINE_DOUBLE_EW = "‚"˝";
-    const LINE_DOUBLE_NS = "‚"";
-    const LINE_DOUBLE_NW = "‚"";
-    const LINE_DOUBLE_NE = "‚"";
-    const LINE_DOUBLE_SE = "‚"˝";
-    const LINE_DOUBLE_SW = "‚"a";
-    const LINE_DOUBLE_CROSS = "‚"¨";
+    const LINE_DOUBLE_EW = "‚ïê";
+    const LINE_DOUBLE_NS = "‚ïë";
+    const LINE_DOUBLE_NW = "‚ïî";
+    const LINE_DOUBLE_NE = "‚ïó";
+    const LINE_DOUBLE_SE = "‚ïù";
+    const LINE_DOUBLE_SW = "‚ïö";
+    const LINE_DOUBLE_CROSS = "‚ï¨";
 
-    const LINE_BLOCK_EW = "‚∆";
-    const LINE_BLOCK_NS = "‚∆";
-    const LINE_BLOCK_NW = "‚∆";
-    const LINE_BLOCK_NE = "‚∆";
-    const LINE_BLOCK_SE = "‚∆";
-    const LINE_BLOCK_SW = "‚∆";
-    const LINE_BLOCK_CROSS = "‚∆";
+    const LINE_BLOCK_EW = "‚ñà";
+    const LINE_BLOCK_NS = "‚ñà";
+    const LINE_BLOCK_NW = "‚ñà";
+    const LINE_BLOCK_NE = "‚ñà";
+    const LINE_BLOCK_SE = "‚ñà";
+    const LINE_BLOCK_SW = "‚ñà";
+    const LINE_BLOCK_CROSS = "‚ñà";
 
 }

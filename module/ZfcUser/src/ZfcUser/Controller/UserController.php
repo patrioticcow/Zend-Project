@@ -177,6 +177,8 @@ class UserController extends AbstractActionController
             );
         }
 
+        // save the new user in the database
+        // add a role
         $post = $prg;
         $user = $service->register($post);
 
@@ -187,6 +189,7 @@ class UserController extends AbstractActionController
                 'redirect' => $redirect,
             );
         }
+
 
         if ($service->getOptions()->getLoginAfterRegistration()) {
             $identityFields = $service->getOptions()->getAuthIdentityFields();

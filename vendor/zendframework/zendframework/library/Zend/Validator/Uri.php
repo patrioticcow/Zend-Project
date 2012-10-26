@@ -17,7 +17,7 @@ use Zend\Validator\Exception\InvalidArgumentException;
 
 /**
  * @category   Zend
- * @package    Zend_Validate
+ * @package    Zend_Validator
  */
 class Uri extends AbstractValidator
 {
@@ -83,6 +83,7 @@ class Uri extends AbstractValidator
     }
 
     /**
+     * @throws InvalidArgumentException
      * @return UriHandler
      */
     public function getUriHandler()
@@ -104,6 +105,7 @@ class Uri extends AbstractValidator
 
     /**
      * @param  UriHandler $uriHandler
+     * @throws InvalidArgumentException
      * @return Uri
      */
     public function setUriHandler($uriHandler)
@@ -129,7 +131,7 @@ class Uri extends AbstractValidator
     /**
      * Sets the allowAbsolute option
      *
-     * @param  boolean $allowWhiteSpace
+     * @param  boolean $allowAbsolute
      * @return Uri
      */
     public function setAllowAbsolute($allowAbsolute)

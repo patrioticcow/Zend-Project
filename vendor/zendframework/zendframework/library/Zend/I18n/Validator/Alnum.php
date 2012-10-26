@@ -15,7 +15,8 @@ use Zend\Validator\AbstractValidator;
 
 /**
  * @category   Zend
- * @package    Zend_Validate
+ * @package    Zend_I18n
+ * @subpackage Validator
  */
 class Alnum extends AbstractValidator
 {
@@ -53,7 +54,7 @@ class Alnum extends AbstractValidator
     /**
      * Sets default option values for this instance
      *
-     * @param array|\Traversable $options
+     * @param bool $allowWhiteSpace
      */
     public function __construct($allowWhiteSpace = false)
     {

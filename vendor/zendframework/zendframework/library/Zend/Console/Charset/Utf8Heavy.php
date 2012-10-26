@@ -21,12 +21,12 @@ namespace Zend\Console\Charset;
 class Utf8Heavy extends Utf8
 {
 
-    const LINE_SINGLE_EW = "‚˝";
-    const LINE_SINGLE_NS = "‚í";
-    const LINE_SINGLE_NW = "‚˝";
-    const LINE_SINGLE_NE = "‚";
-    const LINE_SINGLE_SE = "‚:";
-    const LINE_SINGLE_SW = "‚";
-    const LINE_SINGLE_CROSS = "‚"9";
+    const LINE_SINGLE_EW = "‚îÅ";
+    const LINE_SINGLE_NS = "‚îÉ";
+    const LINE_SINGLE_NW = "‚îè";
+    const LINE_SINGLE_NE = "‚îì";
+    const LINE_SINGLE_SE = "‚îõ";
+    const LINE_SINGLE_SW = "‚îó";
+    const LINE_SINGLE_CROSS = "‚ïã";
 
 }

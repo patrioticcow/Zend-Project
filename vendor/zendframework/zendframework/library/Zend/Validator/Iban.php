@@ -19,7 +19,7 @@ use Zend\Validator\Exception;
  * Validates IBAN Numbers (International Bank Account Numbers)
  *
  * @category   Zend
- * @package    Zend_Validate
+ * @package    Zend_Validator
  */
 class Iban extends AbstractValidator
 {
@@ -222,11 +222,11 @@ class Iban extends AbstractValidator
     public function isValid($value)
     {
         if (!is_string($value)) {
-            $this->error(self::INVALID);
+            $this->error(self::FALSEFORMAT);
             return false;
         }
 
-        $value = strtoupper($value);
+        $value = str_replace(' ', '', strtoupper($value));
         $this->setValue($value);
 
         $countryCode = $this->getCountryCode();

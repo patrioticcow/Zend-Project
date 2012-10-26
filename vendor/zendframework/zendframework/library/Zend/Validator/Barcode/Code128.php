@@ -12,7 +12,7 @@ namespace Zend\Validator\Barcode;
 
 /**
  * @category   Zend
- * @package    Zend_Validate
+ * @package    Zend_Validator
  */
 class Code128 extends AbstractAdapter
 {
@@ -36,8 +36,8 @@ class Code128 extends AbstractAdapter
             72 =>0x08, 73 =>0x09, 74 =>0x0A, 75 =>0x0B, 76 =>0x0C, 77 =>0x0D, 78 =>0x0E, 79 =>0x0F,
             80 =>0x10, 81 =>0x11, 82 =>0x12, 83 =>0x13, 84 =>0x14, 85 =>0x15, 86 =>0x16, 87 =>0x17,
             88 =>0x18, 89 =>0x19, 90 =>0x1A, 91 =>0x1B, 92 =>0x1C, 93 =>0x1D, 94 =>0x1E, 95 =>0x1F,
-            96 => '�!', 97 => 'ü', 98 => 'é', 99 => 'â',100 => 'ä',101 => 'à',102 => 'å',103 => '⬡',
-           104 => '� ',105 => '⬰',106 => 'Š'),
+            96 => 'Ç', 97 => 'ü', 98 => 'é', 99 => 'â',100 => 'ä',101 => 'à',102 => 'å',103 => '‡',
+           104 => 'ˆ',105 => '‰',106 => 'Š'),
         'B' => array(
              0 => ' ',  1 => '!',  2 => '"',  3 => '#',  4 => '$',  5 => '%',  6 => '&',  7 => "'",
              8 => '(',  9 => ')', 10 => '*', 11 => '+', 12 => ',', 13 => '-', 14 => '.', 15 => '/',
@@ -51,8 +51,8 @@ class Code128 extends AbstractAdapter
             72 => 'h', 73 => 'i', 74 => 'j', 75 => 'k', 76 => 'l', 77 => 'm', 78 => 'n', 79 => 'o',
             80 => 'p', 81 => 'q', 82 => 'r', 83 => 's', 84 => 't', 85 => 'u', 86 => 'v', 87 => 'w',
             88 => 'x', 89 => 'y', 90 => 'z', 91 => '{', 92 => '|', 93 => '}', 94 => '~', 95 =>0x7F,
-            96 => '�!', 97 => 'ü', 98 => 'é', 99 => 'â',100 => 'ä',101 => 'à',102 => 'å',103 => '⬡',
-           104 => '� ',105 => '⬰',106 => 'Š'),
+            96 => 'Ç', 97 => 'ü', 98 => 'é', 99 => 'â',100 => 'ä',101 => 'à',102 => 'å',103 => '‡',
+           104 => 'ˆ',105 => '‰',106 => 'Š'),
         'C' => array(
              0 => '00',  1 => '01',  2 => '02',  3 => '03',  4 => '04',  5 => '05',  6 => '06',  7 => '07',
              8 => '08',  9 => '09', 10 => '10', 11 => '11', 12 => '12', 13 => '13', 14 => '14', 15 => '15',
@@ -66,8 +66,8 @@ class Code128 extends AbstractAdapter
             72 => '72', 73 => '73', 74 => '74', 75 => '75', 76 => '76', 77 => '77', 78 => '78', 79 => '79',
             80 => '80', 81 => '81', 82 => '82', 83 => '83', 84 => '84', 85 => '85', 86 => '86', 87 => '87',
             88 => '88', 89 => '89', 90 => '90', 91 => '91', 92 => '92', 93 => '93', 94 => '94', 95 => '95',
-            96 => '96', 97 => '97', 98 => '98', 99 => '99',100 => 'ä', 101 => 'à', 102 => 'å', 103 => '⬡',
-           104 => '� ', 105 => '⬰', 106 => 'Š')));
+            96 => '96', 97 => '97', 98 => '98', 99 => '99',100 => 'ä', 101 => 'à', 102 => 'å', 103 => '‡',
+           104 => 'ˆ', 105 => '‰', 106 => 'Š')));
         $this->setChecksum('code128');
 
     }
@@ -97,7 +97,7 @@ class Code128 extends AbstractAdapter
 
             switch ($char) {
                 // Function definition
-                case '�!' :
+                case 'Ç' :
                 case 'ü' :
                 case 'å' :
                     break;
@@ -130,9 +130,9 @@ class Code128 extends AbstractAdapter
                     break;
 
                 // Doubled start character
-                case '⬡' :
-                case '� ' :
-                case '⬰' :
+                case '‡' :
+                case 'ˆ' :
+                case '‰' :
                     return false;
                     break;
 
@@ -174,11 +174,11 @@ class Code128 extends AbstractAdapter
         $read       = $set;
         $usecheck   = $this->useChecksum(null);
         $char       = iconv_substr($value, 0, 1, 'UTF-8');
-        if ($char == '⬡') {
+        if ($char == '‡') {
             $sum = 103;
-        } elseif ($char == '� ') {
+        } elseif ($char == 'ˆ') {
             $sum = 104;
-        } elseif ($char == '⬰') {
+        } elseif ($char == '‰') {
             $sum = 105;
         } elseif ($usecheck == true) {
             // no start value, unable to detect an proper checksum
@@ -194,7 +194,7 @@ class Code128 extends AbstractAdapter
 
             switch ($char) {
                 // Function definition
-                case '�!' :
+                case 'Ç' :
                 case 'ü' :
                 case 'å' :
                     $sum += ($pos * $this->ord128($char, $set));
@@ -230,9 +230,9 @@ class Code128 extends AbstractAdapter
                     $read = 'A';
                     break;
 
-                case '⬡' :
-                case '� ' :
-                case '⬰' :
+                case '‡' :
+                case 'ˆ' :
+                case '‰' :
                     return false;
                     break;
 
@@ -278,13 +278,13 @@ class Code128 extends AbstractAdapter
     {
         $value = iconv_substr($value, 0, 1, 'UTF-8');
         switch ($value) {
-            case '⬡' :
+            case '‡' :
                 return 'A';
                 break;
-            case '� ' :
+            case 'ˆ' :
                 return 'B';
                 break;
-            case '⬰' :
+            case '‰' :
                 return 'C';
                 break;
         }

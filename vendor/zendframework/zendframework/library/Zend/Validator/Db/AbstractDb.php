@@ -23,7 +23,7 @@ use Zend\Validator\Exception;
  * Class for Database record validation
  *
  * @category   Zend
- * @package    Zend_Validate
+ * @package    Zend_Validator
  */
 abstract class AbstractDb extends AbstractValidator
 {
@@ -94,7 +94,7 @@ abstract class AbstractDb extends AbstractValidator
      */
     public function __construct($options = null)
     {
-        parent::__construct();
+        parent::__construct($options);
 
         if ($options instanceof DbSelect) {
             $this->setSelect($options);
