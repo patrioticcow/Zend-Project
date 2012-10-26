@@ -11,8 +11,13 @@ looking to get their feet wet with ZF2.
 Modules
 -------
 Admin - for testing
+
 Application - for testing
+
 BjyAuthorize
+
 RoleUserBridge
+
 ZfcBase
+
 ZfcUser
