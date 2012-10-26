@@ -17,3 +17,13 @@ Modules
 * [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (latest master)
 * [BjyAuthorize](https://github.com/Darkmatus/BjyAuthorize) (latest master)
 * [RoleUserBridge](https://github.com/Darkmatus/ZfcUser-BjyAuthorize-Bridge) (latest master)
+
+
+What is inside / working
+------------------------
+
+- Twitter Bootstrap
+- Master Layout
+- User (can register, change attributes.. see ZfcUser)
+- Auth (can login, logout.. see ZfcUser)
+- Roles ( can use roles.. see BjyAuthorize and RoleUserBridge)
