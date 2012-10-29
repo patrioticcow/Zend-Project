@@ -34,3 +34,4 @@ What is inside / working
 - User (can register, change attributes.. see ZfcUser)
 - Auth (can login, logout.. see ZfcUser)
 - Roles ( can use roles.. see BjyAuthorize and RoleUserBridge)
+- Admin ( admin layout and role)
