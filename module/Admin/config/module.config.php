@@ -2,7 +2,7 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Admin\Controller\Admin' => 'Admin\Controller\AdminController',
+            'Admin\Controller\Index' => 'Admin\Controller\IndexController',
         ),
     ),
     'router' => array(
@@ -13,7 +13,7 @@ return array(
                     'route'    => '/admin',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Admin\Controller',
-                        'controller'    => 'Admin',
+                        'controller'    => 'Index',
                         'action'        => 'index',
                     ),
                 ),
@@ -42,6 +42,7 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => array(
+            'layout/left-menu'        => __DIR__ . '/../view/admin/layout/left_menu.phtml',
             'layout/layout'           => __DIR__ . '/../../Application/view/layout/layout.phtml',
         	'layout/top_menu'     	  => __DIR__ . '/../../Application/view/layout/top_menu.phtml',
         	'layout/footer'     	  => __DIR__ . '/../../Application/view/layout/footer.phtml',

@@ -44,6 +44,7 @@ return array(
         // in the ACL. like roles, they can be hierarchical
         'resource_providers' => array(
             'BjyAuthorize\Provider\Resource\Config' => array(
+                'admin' => array(),
                 'pants' => array(),
             ),
         ),
@@ -59,7 +60,8 @@ return array(
                 'allow' => array(
                     // allow guests and users (and admins, through inheritance)
                     // the "wear" privilege on the resource "pants"
-                    array(array('guest', 'user'), 'pants', 'wear')
+                    array(array('guest', 'user'), 'pants', 'wear'),
+                    array(array('admin'), 'admin'),
                 ),
 
                 // Don't mix allow/deny rules if you are using role inheritance.
@@ -81,20 +83,24 @@ return array(
                 //array('controller' => 'index', 'action' => 'index', 'roles' => array('guest','user')),
                 //array('controller' => 'index', 'action' => 'stuff', 'roles' => array('user')),
                 array('controller' => 'zfcuser', 'roles' => array()),
-                // Below is the default index action used by the [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication)
                 array('controller' => 'Application\Controller\Index', 'roles' => array('guest', 'user')),
+                array('controller' => 'Admin\Controller\Index', 'roles' => array('admin')),
             ),
 
             /* If this guard is specified here (i.e. it is enabled), it will block
              * access to all routes unless they are specified here.
              */
             'BjyAuthorize\Guard\Route' => array(
-                array('route' => 'zfcuser', 'roles' => array('user')),
-                array('route' => 'zfcuser/logout', 'roles' => array('user')),
-                array('route' => 'zfcuser/login', 'roles' => array('guest')),
-                array('route' => 'zfcuser/register', 'roles' => array('guest')),
+                array('route' => 'zfcuser', 				'roles' => array('user')),
+                array('route' => 'zfcuser/logout', 			'roles' => array('user')),
+                array('route' => 'zfcuser/login', 			'roles' => array('guest')),
+                array('route' => 'zfcuser/register', 		'roles' => array('guest')),
+                array('route' => 'zfcuser/changepassword', 	'roles' => array('user')),
+                array('route' => 'zfcuser/changeemail', 	'roles' => array('user')),
                 // Below is the default index action used by the [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication)
-                array('route' => 'home', 'roles' => array('guest', 'user')),
+                array('route' => 'home', 	'roles' => array('guest', 'user')),
+                array('route' => 'about', 	'roles' => array('guest', 'user')),
+                array('route' => 'admin', 	'roles' => array('admin')),
             ),
         ),
     ),

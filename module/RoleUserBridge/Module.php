@@ -2,10 +2,6 @@
 
 namespace RoleUserBridge;
 
-//use Zend\Db\Adapter\Adapter;
-
-//use RoleUserBridge\Mapper\RoleMapper;
-
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
