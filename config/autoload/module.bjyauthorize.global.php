@@ -101,6 +101,7 @@ return array(
                 array('route' => 'home', 	'roles' => array('guest', 'user')),
                 array('route' => 'about', 	'roles' => array('guest', 'user')),
                 array('route' => 'admin', 	'roles' => array('admin')),
+                array('route' => 'admin/users', 	'roles' => array('admin')),
             ),
         ),
     ),
