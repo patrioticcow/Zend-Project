@@ -14,6 +14,8 @@ class IndexController extends AbstractActionController
 	
     public function usersAction()
     {
+    	//$sm = $this->getServiceLocator()->get('users_mapper');
+    	//var_dump($sm);
     	return new ViewModel();
     }
 

@@ -85,6 +85,7 @@ return array(
                 array('controller' => 'zfcuser', 'roles' => array()),
                 array('controller' => 'Application\Controller\Index', 'roles' => array('guest', 'user')),
                 array('controller' => 'Admin\Controller\Index', 'roles' => array('admin')),
+                array('controller' => 'Album\Controller\Album', 'roles' => array('admin')),
             ),
 
             /* If this guard is specified here (i.e. it is enabled), it will block
@@ -102,6 +103,7 @@ return array(
                 array('route' => 'about', 	'roles' => array('guest', 'user')),
                 array('route' => 'admin', 	'roles' => array('admin')),
                 array('route' => 'admin/users', 	'roles' => array('admin')),
+                array('route' => 'album', 	'roles' => array('admin')),
             ),
         ),
     ),

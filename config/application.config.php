@@ -10,6 +10,7 @@ return array(
     	'ZFTool',
         'Application',
         'Admin',
+    	'Album',
         
     ),
     'module_listener_options' => array(
