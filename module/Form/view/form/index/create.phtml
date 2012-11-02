@@ -1,42 +1,8 @@
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span12">
-	    <ul class="nav nav-tabs" id="add_form_element">
-			<li><a href="#tab_input" data-toggle="tab">Input</a></li>
-			<li><a href="#tab_email" data-toggle="tab">Email</a></li>
-			<li><a href="#messages" data-toggle="tab">Messages</a></li>
-			<li><a href="#settings" data-toggle="tab">Settings</a></li>
-		</ul>
-		<div class="tab-content">
-		  	<div class="tab-pane active" id="tab_input">
-		  		<?php 
-		  		$form = $this->form;
-		  		$form->prepare();
-		  		
-		  		$form->setAttribute('action', $this->url('form', array('action' => 'create')));
-		  		
-		  		echo $this->form()->openTag($form);
-		  		echo $this->formHidden($form->get('csrf'));
-		  		echo $this->formHidden($form->get('user_id'));
-		  		echo $this->formRow($form->get('username'));
-		  		echo $this->formRow($form->get('email'));
-		  		echo $this->formRow($form->get('password'));
-		  		echo $this->formSubmit($form->get('submit'));
-		  		echo $this->form()->closeTag();
-		  		?>
-		  	</div>
-		  	<div class="tab-pane" id="tab_email">
-		  		<button class="btn" id="add_email">Add Email</button>
-		  	</div>
-		  	<div class="tab-pane" id="messages">
-		  		.vdvdvdvdvdv..
-		  	</div>
-		  	<div class="tab-pane" id="settings">
-		  		.dvdvdvdv..
-		  	</div>
-		</div>
+        <div class="span7">
+	    	<ul id="the_form"></ul>
         </div>
-        
-        
+        <?= $this->partial('layout/left-menu', array('form'=>$this->form));?>
     </div>
 </div>

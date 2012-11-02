@@ -14,43 +14,31 @@ class AddInput extends Form
         $this->setAttribute('method', 'post');
 
         $this->add(array(
-            'name' => 'csrf',
-            'type' => 'Zend\Form\Element\Csrf',
-        ));
-
-        $this->add(array(
-            'name' => 'user_id',
-            'type' => 'Zend\Form\Element\Hidden',
-        ));
-
-        $this->add(array(
-            'name'       => 'username',
+            'name'       => 'label',
             'type'       => 'Zend\Form\Element\Text',
-            'attributes' => array('maxlength' => '100', 'size' => '100'),
-            'options'    => array('label' => 'Username'),
+            'attributes' => array('maxlength' => '255'),
+            'options'    => array('label' => 'Replace Label Text '),
         ));
-
+        
         $this->add(array(
-            'name' => 'email',
-            'type' => 'Zend\Form\Element\Email',
-            'attributes' => array('maxlength' => '128', 'size' => '32', 'type' => 'email'),
-            'options' => array('label' => 'Email', 'appendText' => '@'),
+            'name'       => 'placeholder',
+            'type'       => 'Zend\Form\Element\Text',
+            'attributes' => array('maxlength' => '255'),
+            'options'    => array('label' => 'Placeholder Text '),
         ));
-
-        $this->add(array(
-            'name' => 'password',
-            'type' => 'Zend\Form\Element\Password',
-            'attributes' => array('maxlength' => '128', 'size' => '32'),
-            'options' => array('label' => 'Password'),
-        ));
-
-        $this->add(array(
-            'name' => 'password_verify',
-            'type' => 'Zend\Form\Element\Password',
-            'attributes' => array('maxlength' => '128', 'size' => '32'),
-            'options' => array('label' => 'Password Verify'),
-        ));
-
+        
+        $this->add(array(   
+        	'name' => 'required',
+		    'type' => 'Zend\Form\Element\Select',
+		    'attributes' =>  array(
+		        'id' => 'required',
+		        'options' => array(
+		        	'no'  => 'No',
+		            'yes' => 'Yes',
+		        ),
+		    ),
+		    'options' => array('label' => 'Required'),
+		));
 
         $this->add(array(
             'name' => 'submit',

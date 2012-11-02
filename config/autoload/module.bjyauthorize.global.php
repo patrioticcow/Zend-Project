@@ -108,6 +108,7 @@ return array(
             		
                 array('route' => 'form', 	'roles' => array('admin')),
                 array('route' => 'form/create','roles' => array('admin')),
+                array('route' => 'form/input','roles' => array('admin')),
             ),
         ),
     ),

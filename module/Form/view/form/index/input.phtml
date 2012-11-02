@@ -1,0 +1,15 @@
+<?php
+echo '<div>'.$this->result->name.'</div>';
+
+
+$form->prepare();
+
+$form->setAttribute('action', $this->url('form', array('action' => 'create')));
+
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('label'));
+echo $this->formRow($form->get('placeholder'));
+echo $this->formRow($form->get('required'));
+echo '<br>';
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
