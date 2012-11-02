@@ -45,7 +45,7 @@ return array(
         'resource_providers' => array(
             'BjyAuthorize\Provider\Resource\Config' => array(
                 'admin' => array(),
-                'pants' => array(),
+                //'pants' => array(),
             ),
         ),
 
@@ -60,7 +60,7 @@ return array(
                 'allow' => array(
                     // allow guests and users (and admins, through inheritance)
                     // the "wear" privilege on the resource "pants"
-                    array(array('guest', 'user'), 'pants', 'wear'),
+                    //array(array('guest', 'user'), 'pants', 'wear'),
                     array(array('admin'), 'admin'),
                 ),
 
@@ -86,6 +86,7 @@ return array(
                 array('controller' => 'Application\Controller\Index', 'roles' => array('guest', 'user')),
                 array('controller' => 'Admin\Controller\Index', 'roles' => array('admin')),
                 array('controller' => 'Album\Controller\Album', 'roles' => array('admin')),
+                array('controller' => 'Form\Controller\Index', 'roles' => array('admin')),
             ),
 
             /* If this guard is specified here (i.e. it is enabled), it will block
@@ -104,6 +105,9 @@ return array(
                 array('route' => 'admin', 	'roles' => array('admin')),
                 array('route' => 'admin/users', 	'roles' => array('admin')),
                 array('route' => 'album', 	'roles' => array('admin')),
+            		
+                array('route' => 'form', 	'roles' => array('admin')),
+                array('route' => 'form/create','roles' => array('admin')),
             ),
         ),
     ),

@@ -11,6 +11,7 @@ return array(
         'Application',
         'Admin',
     	'Album',
+        'Form',
         
     ),
     'module_listener_options' => array(
