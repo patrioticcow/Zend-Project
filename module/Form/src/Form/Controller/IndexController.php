@@ -9,7 +9,11 @@ use Zend\Mvc\Controller\AbstractActionController,
 
 class IndexController extends AbstractActionController
 {
-
+	public function init()
+	{
+		$this->headScript()->appendFile('/js/form/line.text.js');
+	}
+	
     public function indexAction()
     {
         return array();
@@ -28,6 +32,7 @@ class IndexController extends AbstractActionController
     	$results = $request->getQuery();
     	
     	$form = new AddInput();
+
     	
     	$result = new ViewModel(['result' => $results, 'form' => $form]);
     	

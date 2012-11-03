@@ -35,3 +35,10 @@ What is inside / working
 - Auth (can login, logout.. see ZfcUser)
 - Roles ( can use roles.. see BjyAuthorize and RoleUserBridge)
 - Admin ( admin layout and role)
+
+
+View Admin Features
+------------------------
+
+Register an user and change it to "admin" in the "user_role_linker" table
+

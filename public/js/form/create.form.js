@@ -11,30 +11,7 @@ $(document).ready(function() {
 	});
 	
 	$('#single_line_text').click(function (e) {
-		
-		var liId = "edit_form_text" + uniqueId;
-		
-		var li = $("<li/>", {
-			"id": liId
-		}).appendTo(theForm);
-		
-		$("<label/>", {
-			text: "Text",
-			"for": "form_input",
-		}).appendTo(li);
-		
-		$("<input/>", {
-			type: "text",
-			id: "form_input",
-			placeholder: "Type something..."
-		}).appendTo(li);
-
-		$("<button/>", {
-			type: "button",
-			"class": "btn btn-link pull-right",
-			id: "edit_form_input",
-			text: "Edit"
-		}).appendTo(li);
+		line_text(uniqueId, theForm, secondTab, fieldProp);
 		
 		$('#'+ liId +' #edit_form_input').click(function (e) {
 			secondTab.tab('show');
@@ -42,8 +19,6 @@ $(document).ready(function() {
 				fieldProp.html(data);
 		    });
 		});
-		
-		uniqueId++;
 	});
 	
 	$('#line_number').click(function (e) {
@@ -100,7 +75,7 @@ $(document).ready(function() {
 			id: "form_paragraph",
 			placeholder: "Type something..."
 		}).appendTo(li);
-
+		
 		$("<button/>", {
 			type: "button",
 			"class": "btn btn-link pull-right",
@@ -111,6 +86,52 @@ $(document).ready(function() {
 		$('#'+ liId +' #edit_form_paragraph').click(function (e) {
 			secondTab.tab('show');
 			$.get('/form/input', { name: "Edit Textarea Field"}).done(function(data) {
+				fieldProp.html(data);
+			});
+		});
+		
+		uniqueId++;
+	});
+	
+	$('#line_checkbox').click(function (e) {
+		
+		var liId = "edit_form_checkbox" + uniqueId;
+		
+		var li = $("<li/>", {
+			"id": liId
+		}).appendTo(theForm);
+		
+		$("<label/>", {
+			text: "Checkboxes ",
+		}).appendTo(li);
+		
+		var checkbox_span = $("<span/>", {
+			id: "span_checkbox",
+		}).appendTo(li);
+		
+		for (var i=0;i<=2;i++)
+		{ 
+			var checkbox = $("<label/>", {
+				text: "Checkbox " + i,
+				"class":"checkbox",
+			}).appendTo(checkbox_span);
+					
+			$("<input/>", {
+				type: "checkbox",
+				id: "form_checkbox_" + i,
+			}).appendTo(checkbox);
+		}
+		
+		$("<button/>", {
+			type: "button",
+			"class": "btn btn-link pull-right",
+			id: "edit_form_checkbox",
+			text: "Edit"
+		}).appendTo(li);
+		
+		$('#'+ liId +' #edit_form_checkbox').click(function (e) {
+			secondTab.tab('show');
+			$.get('/form/input', { name: "Edit Checkbox Field"}).done(function(data) {
 				fieldProp.html(data);
 		    });
 		});
