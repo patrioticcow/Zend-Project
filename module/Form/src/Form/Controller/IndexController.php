@@ -6,13 +6,10 @@ use Zend\Mvc\Controller\AbstractActionController,
 	Form\Forms\AddInput,
 	Zend\View\Model\JsonModel,
 	Zend\View\Model\ViewModel;
+use Zend\View\Renderer\PhpRenderer;
 
 class IndexController extends AbstractActionController
 {
-	public function init()
-	{
-		$this->headScript()->appendFile('/js/form/line.text.js');
-	}
 	
     public function indexAction()
     {
@@ -21,6 +18,9 @@ class IndexController extends AbstractActionController
     
     public function createAction()
     {
+    	$headScript = new PhpRenderer();
+    	$headScript->headScript()->appendFile('/js/form/line.text.js');
+    	
     	$form = new AddInput();
 
     	return ['form' => $form];

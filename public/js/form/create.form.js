@@ -5,51 +5,27 @@ $(document).ready(function() {
 	var secondTab = $('#add_form_element li:eq(1) a');
 	var fieldProp = $('#field_properties');
 	
+	$('.delete_li').live("click", function () {
+		$(this).parent().remove();
+	});
+	
 	$('#add_form_element a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
 	});
 	
+	/**
+	 * single_line_text
+	 */
 	$('#single_line_text').click(function (e) {
-		line_text(uniqueId, theForm, secondTab, fieldProp);
 		
-		$('#'+ liId +' #edit_form_input').click(function (e) {
+		var liId = "edit_form_text" + uniqueId;
+		
+		line_text(liId, theForm, fieldProp, uniqueId);
+		
+		$('#'+ liId +' #edit_form_text').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Input Field"}).done(function(data) {
-				fieldProp.html(data);
-		    });
-		});
-	});
-	
-	$('#line_number').click(function (e) {
-		
-		var liId = "edit_form_number" + uniqueId;
-		
-		var li = $("<li/>", {
-			"id": liId
-		}).appendTo(theForm);
-		
-		$("<label/>", {
-			text: "Number",
-			"for": "form_number",
-		}).appendTo(li);
-		
-		$("<input/>", {
-			type: "text",
-			id: "form_number",
-			placeholder: "Type something..."
-		}).appendTo(li);
-
-		$("<button/>", {
-			type: "button",
-			"class": "btn btn-link pull-right",
-			id: "edit_form_number",
-			text: "Edit"
-		}).appendTo(li);
-		
-		$('#'+ liId +' #edit_form_number').click(function (e) {
-			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Number Field"}).done(function(data) {
+			$.get('/form/input', { name: "Edit Input Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 		    });
 		});
@@ -57,35 +33,36 @@ $(document).ready(function() {
 		uniqueId++;
 	});
 	
+	/**
+	 * line_number
+	 */
+	$('#line_number').click(function (e) {
+		var liId = "edit_form_number" + uniqueId;
+		
+		line_number(liId, theForm, fieldProp, uniqueId);
+		
+		$('#'+ liId +' #edit_form_number').click(function (e) {
+			secondTab.tab('show');
+			$.get('/form/input', { name: "Edit Number Field", id: liId}).done(function(data) {
+				fieldProp.html(data);
+		    });
+		});
+		
+		uniqueId++;
+	});
+	
+	/**
+	 * line_paragraph
+	 */
 	$('#line_paragraph').click(function (e) {
 		
 		var liId = "edit_form_paragraph" + uniqueId;
 		
-		var li = $("<li/>", {
-			"id": liId
-		}).appendTo(theForm);
-		
-		$("<label/>", {
-			text: "Paragraph",
-			"for": "form_paragraph",
-		}).appendTo(li);
-		
-		$("<textarea/>", {
-			type: "text",
-			id: "form_paragraph",
-			placeholder: "Type something..."
-		}).appendTo(li);
-		
-		$("<button/>", {
-			type: "button",
-			"class": "btn btn-link pull-right",
-			id: "edit_form_paragraph",
-			text: "Edit"
-		}).appendTo(li);
+		line_paragraph(liId, theForm, fieldProp, uniqueId);
 		
 		$('#'+ liId +' #edit_form_paragraph').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Textarea Field"}).done(function(data) {
+			$.get('/form/input', { name: "Edit Textarea Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 			});
 		});
@@ -93,51 +70,63 @@ $(document).ready(function() {
 		uniqueId++;
 	});
 	
+	/**
+	 * line_checkbox
+	 */
 	$('#line_checkbox').click(function (e) {
 		
 		var liId = "edit_form_checkbox" + uniqueId;
 		
-		var li = $("<li/>", {
-			"id": liId
-		}).appendTo(theForm);
-		
-		$("<label/>", {
-			text: "Checkboxes ",
-		}).appendTo(li);
-		
-		var checkbox_span = $("<span/>", {
-			id: "span_checkbox",
-		}).appendTo(li);
-		
-		for (var i=0;i<=2;i++)
-		{ 
-			var checkbox = $("<label/>", {
-				text: "Checkbox " + i,
-				"class":"checkbox",
-			}).appendTo(checkbox_span);
-					
-			$("<input/>", {
-				type: "checkbox",
-				id: "form_checkbox_" + i,
-			}).appendTo(checkbox);
-		}
-		
-		$("<button/>", {
-			type: "button",
-			"class": "btn btn-link pull-right",
-			id: "edit_form_checkbox",
-			text: "Edit"
-		}).appendTo(li);
+		line_checkbox(liId, theForm, fieldProp, uniqueId);
 		
 		$('#'+ liId +' #edit_form_checkbox').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Checkbox Field"}).done(function(data) {
+			$.get('/form/input', { name: "Edit Checkbox Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 		    });
 		});
 		
 		uniqueId++;
 	});
+	
+	/**
+	 * line_radio
+	 */
+	$('#line_radio').click(function (e) {
+		
+		var liId = "edit_form_radio" + uniqueId;
+		
+		line_radio(liId, theForm, fieldProp, uniqueId);
+		
+		$('#'+ liId +' #edit_form_radio').click(function (e) {
+			secondTab.tab('show');
+			$.get('/form/input', { name: "Edit Radio Field", id: liId}).done(function(data) {
+				fieldProp.html(data);
+		    });
+		});
+		
+		uniqueId++;
+	});
+	
+	/**
+	 * line_dropdown
+	 */
+	$('#line_dropdown').click(function (e) {
+		
+		var liId = "edit_form_dropdown" + uniqueId;
+		
+		line_dropdown(liId, theForm, fieldProp, uniqueId);
+		
+		$('#'+ liId +' #edit_form_dropdown').click(function (e) {
+			secondTab.tab('show');
+			$.get('/form/input', { name: "Edit Drop Down Field", id: liId}).done(function(data) {
+				fieldProp.html(data);
+			});
+		});
+		
+		uniqueId++;
+	});
+	
 	
 	
 	// maybe i'll do a plugin
@@ -152,6 +141,5 @@ $(document).ready(function() {
 		console.log(config.test);
 	};
 	*/
-	
-	
+
 });
