@@ -1,15 +1,26 @@
-<?php
-echo '<div>'.$this->result->name.' '.$this->result->id.'</div>';
+<?= '<div>'.$this->result->name.'</div>'; ?>
 
+<form action="/form" method="post" name="add_form_data" id="add_form_data" class="<?= $this->result->id; ?>">
+	<ul class="nav nav-list">
+		<li>
+			<label>Replace Label Text</label>
+			<input type="text" name="text_label" maxlength="255" value="">
+		</li>
+		<li>
+			<label>Placeholder Text</label>
+			<input type="text" name="placeholder_text" maxlength="255" value="">
+		</li>
+		<li>
+			<label>Required</label>
+			<select name="required">
+				<option value="no">No</option>
+				<option value="yes">Yes</option>
+			</select>
+		</li>
+		<li>
+			<button class="btn btn-primary" id="add_form_text">Save</button>
+		</li>
+	</ul>
+</form>
 
-$form->prepare();
-
-$form->setAttribute('action', $this->url('form', array('action' => 'create')));
-
-echo $this->form()->openTag($form);
-echo $this->formRow($form->get('label'));
-echo $this->formRow($form->get('placeholder'));
-echo $this->formRow($form->get('required'));
-echo '<br>';
-echo $this->formSubmit($form->get('submit'));
-echo $this->form()->closeTag();
+<?= '<small>'.$this->result->id.'</small>'; ?>

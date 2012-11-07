@@ -1,7 +1,13 @@
-var line_text = function (liId, theForm, fieldProp, uniqueId)
+var line_text = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
-	var li = addLi(liId).appendTo(theForm);
-		
+	var li = addLi(liId, liClass).appendTo(theForm);
+	
+	$("<input/>", {
+		type: "hidden",
+		name: "required",
+		value: "0",
+	}).appendTo(li);
+	
 	$("<label/>", {
 		text: "Text",
 		"for": "form_input",
@@ -13,17 +19,17 @@ var line_text = function (liId, theForm, fieldProp, uniqueId)
 		placeholder: "Type something..."
 	}).appendTo(li);
 
-	formButton("delete_form_text", "Delete", "delete_li").appendTo(li);
-	formButton("edit_form_text", "Edit").appendTo(li);
+	formButton("Delete", "delete_li").appendTo(li);
+	formButton("Edit", "edit_li").appendTo(li);
 	
 	$("<div/>", {
 		"style": "clear:both;"
 	}).appendTo(li);
 };
 
-var line_number = function (liId, theForm, fieldProp, uniqueId)
+var line_number = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
-	var li = addLi(liId).appendTo(theForm);
+	var li = addLi(liId, liClass).appendTo(theForm);
 	
 	$("<label/>", {
 		text: "Number",
@@ -36,17 +42,17 @@ var line_number = function (liId, theForm, fieldProp, uniqueId)
 		placeholder: "Type something..."
 	}).appendTo(li);
 	
-	formButton("delete_form_number", "Delete", "delete_li").appendTo(li);
-	formButton("edit_form_number", "Edit").appendTo(li);
+	formButton("Delete", "delete_li").appendTo(li);
+	formButton("Edit", "edit_li").appendTo(li);
 	
 	$("<div/>", {
 		"style": "clear:both;"
 	}).appendTo(li);
 };
 
-var line_paragraph = function (liId, theForm, fieldProp, uniqueId)
+var line_paragraph = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
-	var li = addLi(liId).appendTo(theForm);
+	var li = addLi(liId, liClass).appendTo(theForm);
 	
 	$("<label/>", {
 		text: "Paragraph",
@@ -59,17 +65,17 @@ var line_paragraph = function (liId, theForm, fieldProp, uniqueId)
 		placeholder: "Type something..."
 	}).appendTo(li);
 	
-	formButton("delete_form_paragraph", "Delete", "delete_li").appendTo(li);
-	formButton("edit_form_paragraph", "Edit").appendTo(li);
+	formButton("Delete", "delete_li").appendTo(li);
+	formButton("Edit", "edit_li").appendTo(li);
 	
 	$("<div/>", {
 		"style": "clear:both;"
 	}).appendTo(li);
 };
 
-var line_checkbox = function (liId, theForm, fieldProp, uniqueId)
+var line_checkbox = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
-	var li = addLi(liId).appendTo(theForm);
+	var li = addLi(liId, liClass).appendTo(theForm);
 	
 	$("<label/>", {
 		text: "Checkboxes ",
@@ -92,17 +98,17 @@ var line_checkbox = function (liId, theForm, fieldProp, uniqueId)
 		}).appendTo(checkbox);
 	}
 	
-	formButton("delete_form_checkbox", "Delete", "delete_li").appendTo(li);
-	formButton("edit_form_checkbox", "Edit").appendTo(li);
+	formButton("Delete", "delete_li").appendTo(li);
+	formButton("Edit", "edit_li").appendTo(li);
 	
 	$("<div/>", {
 		"style": "clear:both;"
 	}).appendTo(li);
 };
 
-var line_radio = function (liId, theForm, fieldProp, uniqueId)
+var line_radio = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
-	var li = addLi(liId).appendTo(theForm);
+	var li = addLi(liId, liClass).appendTo(theForm);
 	
 	$("<label/>", {
 		text: "Multiple Choices ",
@@ -125,17 +131,17 @@ var line_radio = function (liId, theForm, fieldProp, uniqueId)
 		}).appendTo(radio);
 	}
 	
-	formButton("delete_form_radio", "Delete", "delete_li").appendTo(li);
-	formButton("edit_form_radio", "Edit").appendTo(li);
+	formButton("Delete", "delete_li").appendTo(li);
+	formButton("Edit", "edit_li").appendTo(li);
 	
 	$("<div/>", {
 		"style": "clear:both;"
 	}).appendTo(li);
 };
 
-var line_dropdown = function (liId, theForm, fieldProp, uniqueId)
+var line_dropdown = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
-	var li = addLi(liId).appendTo(theForm);
+	var li = addLi(liId, liClass).appendTo(theForm);
 	
 	$("<label/>", {
 		text: "Drop Down",
@@ -154,27 +160,27 @@ var line_dropdown = function (liId, theForm, fieldProp, uniqueId)
 		}).appendTo(radio);
 	}
 	
-	formButton("delete_form_dropdown", "Delete", "delete_li").appendTo(li);
-	formButton("edit_form_dropdown", "Edit").appendTo(li);
+	formButton("Delete", "delete_li").appendTo(li);
+	formButton("Edit", "edit_li").appendTo(li);
 	
 	$("<div/>", {
 		"style": "clear:both;"
 	}).appendTo(li);
 };
 
-var addLi = function(liId){
+var addLi = function(liId, liClass){
 	var list = $("<li/>", {
-		"id": liId
+		"id": liId,
+		"class": liClass
 	});
 	return(list);
 };
 
-var formButton = function(editFormButton, textForm, deleteLi){
+var formButton = function(textForm, deleteLi){
 	return(
 		$("<button/>", {
 			type: "button",
 			"class": "btn btn-link pull-right " + deleteLi,
-			id: editFormButton,
 			text: textForm
 		})
 	);
