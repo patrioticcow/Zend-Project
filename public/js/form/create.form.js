@@ -137,7 +137,7 @@ $(document).ready(function() {
 		
 		li.each(function(index, data)
 		{
-			var liClass = li.attr('class');
+			var liClass = $(this).attr('class');
 			
 			switch(liClass)
 			{
