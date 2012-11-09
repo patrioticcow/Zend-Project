@@ -4,27 +4,44 @@ $(document).ready(function()
 		e.preventDefault();
 		
 		var formId = $('#add_form_data');
+		addForm(formId, 'input', 'form_input');
+	});
+	
+	$('#add_form_paragraph').live("click", function(e){
+		e.preventDefault();
+		
+		var formId = $('#add_form_data');
+		addForm(formId, 'textarea', 'form_paragraph');
+	});
+	
+	
+	/**
+	 * edit individual field form preferences
+	 */
+	var addForm = function(formId, fieldTipe, formClass){
 		var formField = formId.attr('class');
 		var formJson = formId.serializeFormJSON();
+		var formSel = $('#' + formField + ' ' + fieldTipe + '.' + formClass);
+		var formReq = $('#' + formField + ' input[name="required"]');
 		
 		$('#' + formField + ' label').text(formJson.text_label);
-		$('#' + formField + ' input#form_input').attr("placeholder", formJson.placeholder_text);
+		formSel.attr("placeholder", formJson.placeholder_text);
 		
 		var hasAttr = $('#' + formField + ' input').attr("required");
 			
 		if(formJson.required === 'yes'){
 			if(hasAttr === undefined ){
-				$('#' + formField + ' input#form_input').attr("required", "true");
+				formSel.attr("required", "true");
 			}
-			$('#' + formField + ' input[name="required"]').attr("value", "1");
+			formReq.attr("value", "1");
 		}
 		
 		if(formJson.required === 'no'){
 			if(hasAttr == 'required' ){
-				$('#' + formField + ' input#form_input').removeAttr("required");
+				formSel.removeAttr("required");
 			}
-			$('#' + formField + ' input[name="required"]').attr("value", "0");
+			formReq.attr("value", "0");
 		}
-	});
+	};
 
 });

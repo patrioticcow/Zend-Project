@@ -43,7 +43,7 @@ $(document).ready(function() {
 		
 		$('#'+ liId +' .edit_li').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Number Field", id: liId}).done(function(data) {
+			$.get('/form/number', { name: "Edit Number Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 		    });
 		});
@@ -62,7 +62,7 @@ $(document).ready(function() {
 		
 		$('#'+ liId +' .edit_li').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Textarea Field", id: liId}).done(function(data) {
+			$.get('/form/paragraph', { name: "Edit Textarea Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 			});
 		});
@@ -81,7 +81,7 @@ $(document).ready(function() {
 		
 		$('#'+ liId +' .edit_li').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Checkbox Field", id: liId}).done(function(data) {
+			$.get('/form/checkbox', { name: "Edit Checkbox Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 		    });
 		});
@@ -100,7 +100,7 @@ $(document).ready(function() {
 		
 		$('#'+ liId +' .edit_li').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Radio Field", id: liId}).done(function(data) {
+			$.get('/form/radio', { name: "Edit Radio Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 		    });
 		});
@@ -119,7 +119,7 @@ $(document).ready(function() {
 		
 		$('#'+ liId +' .edit_li').click(function (e) {
 			secondTab.tab('show');
-			$.get('/form/input', { name: "Edit Drop Down Field", id: liId}).done(function(data) {
+			$.get('/form/dropdown', { name: "Edit Drop Down Field", id: liId}).done(function(data) {
 				fieldProp.html(data);
 			});
 		});
@@ -127,30 +127,21 @@ $(document).ready(function() {
 		uniqueId++;
 	});
 	
-	$('#generate_form_button').click(function(e){
+	/**
+	 * generate the form
+	 * convert form to json
+	 */
+	$('#generate_form_button').live("click", function(e){
 		e.preventDefault();
-		var mainFormId = $('#generate_form');
-		var formJson = mainFormId.serializeFormJSON();
-		
-		
+
 		var li = $('#the_form li');
 		
-		li.each(function(index, data)
-		{
-			var liClass = $(this).attr('class');
-			
-			switch(liClass)
-			{
-			case 'edit_form_text':
-				  console.log(data);
-			  break;
-			default:
-				console.log('no match');
-			  break;
-			}
+		li.each(function(index, data) {
+		    if($(this).hasClass('edit_form_text') === true) {
+		        var addLineText = lineTextJson($(this));
+		        console.log(addLineText);
+		    }
 		});
-		
-		console.log(formJson);
 	});
 	
 	function trim(str){

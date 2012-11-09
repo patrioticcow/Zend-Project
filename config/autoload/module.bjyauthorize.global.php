@@ -105,10 +105,11 @@ return array(
                 array('route' => 'admin', 	'roles' => array('admin')),
                 array('route' => 'admin/users', 	'roles' => array('admin')),
                 array('route' => 'album', 	'roles' => array('admin')),
-            		
+
                 array('route' => 'form', 	'roles' => array('admin')),
                 array('route' => 'form/create','roles' => array('admin')),
                 array('route' => 'form/input','roles' => array('admin')),
+                array('route' => 'form/paragraph','roles' => array('admin')),
             ),
         ),
     ),

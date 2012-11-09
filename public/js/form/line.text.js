@@ -15,7 +15,7 @@ var line_text = function (liId, theForm, fieldProp, uniqueId, liClass)
 		
 	$("<input/>", {
 		type: "text",
-		id: "form_input",
+		"class": "form_input",
 		placeholder: "Type something..."
 	}).appendTo(li);
 
@@ -31,6 +31,12 @@ var line_number = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
 	var li = addLi(liId, liClass).appendTo(theForm);
 	
+	$("<input/>", {
+		type: "hidden",
+		name: "required",
+		value: "0",
+	}).appendTo(li);
+	
 	$("<label/>", {
 		text: "Number",
 		"for": "form_number",
@@ -38,7 +44,7 @@ var line_number = function (liId, theForm, fieldProp, uniqueId, liClass)
 	
 	$("<input/>", {
 		type: "text",
-		id: "form_number",
+		"class": "form_number",
 		placeholder: "Type something..."
 	}).appendTo(li);
 	
@@ -54,6 +60,12 @@ var line_paragraph = function (liId, theForm, fieldProp, uniqueId, liClass)
 {
 	var li = addLi(liId, liClass).appendTo(theForm);
 	
+	$("<input/>", {
+		type: "hidden",
+		name: "required",
+		value: "0",
+	}).appendTo(li);
+	
 	$("<label/>", {
 		text: "Paragraph",
 		"for": "form_paragraph",
@@ -61,7 +73,7 @@ var line_paragraph = function (liId, theForm, fieldProp, uniqueId, liClass)
 	
 	$("<textarea/>", {
 		type: "text",
-		id: "form_paragraph",
+		"class": "form_paragraph",
 		placeholder: "Type something..."
 	}).appendTo(li);
 	
@@ -82,7 +94,7 @@ var line_checkbox = function (liId, theForm, fieldProp, uniqueId, liClass)
 	}).appendTo(li);
 	
 	var checkbox_span = $("<span/>", {
-		id: "span_checkbox",
+		"class": "span_checkbox",
 	}).appendTo(li);
 	
 	for (var i=0;i<=2;i++)
@@ -115,7 +127,7 @@ var line_radio = function (liId, theForm, fieldProp, uniqueId, liClass)
 	}).appendTo(li);
 	
 	var radio_span = $("<span/>", {
-		id: "span_radio",
+		"class": "span_radio",
 	}).appendTo(li);
 	
 	for (var i=0;i<=2;i++)

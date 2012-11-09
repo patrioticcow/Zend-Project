@@ -39,6 +39,16 @@ return array(
                 			),
                 		),
                 	),
+                	'paragraph' => array(
+                		'type' => 'Literal',
+                		'options' => array(
+                			'route' => '/paragraph',
+                			'defaults' => array(
+                				'controller' => 'Index',
+                				'action'     => 'paragraph',
+                			),
+                		),
+                	),
                 ),
             ),
         ),
@@ -61,6 +71,6 @@ return array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
-    	
+
     ),
 );
